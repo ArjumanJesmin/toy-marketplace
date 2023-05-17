@@ -12,10 +12,10 @@ const NavigationBar = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto  gap-4 ">
                         <Link className='text-decoration-none text-white' to='/'>Home</Link>
-                        <Link className='text-decoration-none text-white' to='/myToys'>All Toys</Link>
+                        <Link className='text-decoration-none text-white' to='/allToys'>All Toys</Link>
                         <Link className='text-decoration-none text-white' to='/myToys'>My Toys</Link>
-                        <Link className='text-decoration-none text-white' to='/myToys'>Add A Toys</Link>
-                        <Link className='text-decoration-none text-white' to='/myToys'>Blog</Link>
+                        <Link className='text-decoration-none text-white' to='/addAToys'>Add A Toys</Link>
+                        <Link className='text-decoration-none text-white' to='/blog'>Blog</Link>
                     </Nav>
                     <Nav>
                         <Link className='text-decoration-none text-white' to='/login'>Login</Link>
