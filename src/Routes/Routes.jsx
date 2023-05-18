@@ -9,6 +9,7 @@ import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/MyToys";
 import AddAToys from "../Pages/AddAToys/AddAToys";
 import Blog from "../Pages/Blog/Blog";
+import NotFound from "../Pages/NotFound/NotFound";
 
 
   const router = createBrowserRouter([
@@ -47,6 +48,10 @@ import Blog from "../Pages/Blog/Blog";
        
       ]
     },
+    {
+      path:'/*',
+      element:<NotFound/>
+    }
     
   ]);
 
