@@ -1,9 +1,21 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import TableBody from './TableBody';
 
 const AllToys = () => {
+
+  const [allToys, setAllToys] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/toys')
+            .then(res => res.json())
+            .then(data => {
+              setAllToys(data)
+              console.log(data)
+            })
+           
+    }, [])
     return (
        <Container className='my-4'>
         <Row>
@@ -16,8 +28,9 @@ const AllToys = () => {
             <th>Sub-category</th>
           </tr>
         </thead>
-        <TableBody/>
-       
+        {
+          allToys.map(singleToy =><TableBody singleToy={singleToy} key={singleToy._id} />)
+        }
       </Table>
             </Col>
         </Row>

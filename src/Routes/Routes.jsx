@@ -10,6 +10,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import AddAToys from "../Pages/AddAToys/AddAToys";
 import Blog from "../Pages/Blog/Blog";
 import NotFound from "../Pages/NotFound/NotFound";
+import Details from "../Pages/Home/Details";
 
 
   const router = createBrowserRouter([
@@ -44,6 +45,10 @@ import NotFound from "../Pages/NotFound/NotFound";
         {
           path:'/register',
           element:<Register/>
+        },
+        {
+          path:'/details',
+          element:<Details/>
         },
        
       ]

@@ -6,8 +6,10 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+
+    
     return (
-        <Container className=''>
+        <Container>
             <Row>
                 <Col className='mx-auto my-4 border p-5 rounded shadow' md={4}>
                     <h2>Login </h2>
@@ -20,9 +22,9 @@ const Login = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" name='password' placeholder="Password" required/>
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formGroupSubmit">
-                            <Form.Label>Submit</Form.Label>
-                            <Form.Control type="Submit"  />
+                        <Form.Group className="mb-3" controlId="formGroupLogin">
+                            <Form.Label>Login</Form.Label>
+                            <Form.Control name='login' type="submit"  />
                         </Form.Group>
                         <Button><FaGoogle/></Button>
                     </Form>

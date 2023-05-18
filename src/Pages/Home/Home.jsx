@@ -2,12 +2,14 @@
 import React from 'react';
 import Banner from './Banner';
 import Gallery from './Gallery';
+import CategoryTab from './CategoryTab';
 
 const Home = () => {
     return (
         <div>
             <Banner/>
             <Gallery/>
+            <CategoryTab/>
         </div>
     );
 };
