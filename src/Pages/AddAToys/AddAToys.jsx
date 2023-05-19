@@ -5,9 +5,11 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import CreatableSelect from 'react-select';
 import { AuthContext } from '../../providers/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 const AddAToys = () => {
+    useTitle('AddAToys')
     const [selectedOption, setSelectedOption] = useState(null);
     const { user } = useContext(AuthContext);
     const {

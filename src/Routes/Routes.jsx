@@ -10,7 +10,11 @@ import MyToys from "../Pages/MyToys/MyToys";
 import AddAToys from "../Pages/AddAToys/AddAToys";
 import Blog from "../Pages/Blog/Blog";
 import NotFound from "../Pages/NotFound/NotFound";
-import Details from "../Pages/Home/Details";
+import Details from "../Pages/Home/DollDetailsData/Details";
+import DetailsTwo from "../Pages/Home/DollDetailsData/DetailsTwo";
+import BtnDetails from "../Pages/Home/DollDetailsData/BtnDetails";
+
+
 
 
 const router = createBrowserRouter([
@@ -46,14 +50,25 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />
       },
-      
+      {
+        path: '/details/:id',
+        element: <Details />,
+        loader: ({ params }) => fetch(`http://localhost:5000/toysOne/${params.id}`)
+      },
+      {
+        path: '/detailsTwo/:id',
+        element: <DetailsTwo />,
+        loader: ({ params }) => fetch(`http://localhost:5000/toysTwo/${params.id}`)
+      },
+      {
+        path:'/btnDetails/:id',
+        element:<BtnDetails/>,
+        loader:({params}) =>fetch(`http://localhost:5000/toysThree/${params.id}`)
+      }
+
     ]
   },
-  {
-    path: '/details',
-    element: <Details />,
-    loader: ({ params }) => fetch(`http://localhost:5000/toysOne/${params.id}`)
-  },
+ 
   {
     path: '/*',
     element: <NotFound />

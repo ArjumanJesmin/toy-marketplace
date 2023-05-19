@@ -3,8 +3,10 @@ import React from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
+    useTitle('register')
     return (
         <Container>
             <Row>

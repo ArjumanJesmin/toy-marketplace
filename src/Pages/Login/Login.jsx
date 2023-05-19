@@ -1,12 +1,14 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-
+    useTitle('Login')
     
     return (
         <Container>

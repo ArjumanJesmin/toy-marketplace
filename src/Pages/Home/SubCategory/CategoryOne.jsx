@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
 import CardToy from './CardToy';
+import { Link } from 'react-router-dom';
 
 const CategoryOne = () => {
 
@@ -16,15 +18,30 @@ const CategoryOne = () => {
     }, [])
 
     return (
-            <Container>
-                <Row>
-                    <Col xs={12} className='d-flex'>
-                        {
-                            toys.map((toy) => <CardToy toy={toy} key={toy._id}/> )
-                        }
-                    </Col>
-                </Row>
-            </Container>
+        <Container>
+            <Row className=' justify-content-center'>
+                <Col className='d-flex' sm={12}   >
+                     {
+                        toys.map((toy) => <>
+                            <div>
+                                <Card >
+                                    <Card.Img  style={{ height: '20rem' }} variant="top" src={toy?.image} fluid />
+                                    <Card.Body>
+                                        <Card.Title>{toy?.name}</Card.Title>
+                                        <Card.Text>
+                                            <p>price: $ {toy?.price}</p>
+                                            <p>Rating: {toy?.rating}</p>
+                                        </Card.Text>
+                                        <Link to={`/details/${toy._id}`}><Button key={toy._id} className="me-2 mb-2" variant="primary">View Details</Button></Link>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        </>)
+                    }
+                </Col>
+                
+            </Row>
+        </Container>
     );
 };
 
