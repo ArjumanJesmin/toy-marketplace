@@ -10,28 +10,28 @@ import { AuthContext } from '../../providers/AuthProvider';
 const AddAToys = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const { user } = useContext(AuthContext);
-     const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-    
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+
     const onSubmit = (data) => {
         data.skills = selectedOption;
         console.log(data)
-    
+
         fetch("http://localhost:5000/postToy", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
         })
-          .then((res) => res.json())
-          .then((result) => {
-            console.log(result);
-          });
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+            });
         console.log(data);
-      };
+    };
 
     const options = [
         { value: 'frozen dolls', label: 'frozen dolls' },
@@ -41,7 +41,7 @@ const AddAToys = () => {
         { value: 'Bedtime Baby Doll', label: 'Bedtime Baby Doll' },
         { value: 'Cooking Toys', label: 'Cooking Toys' },
     ];
-    
+
 
     return (
         <Container>
@@ -78,7 +78,7 @@ const AddAToys = () => {
                             options={options}
                             isMulti
                         />
-                        <select className="mb-2 w-50" {...register("available_quantity")}>
+                        <select className="mb-2 w-25" {...register("available_quantity")}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -90,6 +90,14 @@ const AddAToys = () => {
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
+                        <select className="mb-2 w-25" {...register('radioGroup')}>
+                            <option value="Rating1">4.6 </option>
+                            <option value="Rating2">4.7 </option>
+                            <option value="Rating3">4.8 </option>
+                            <option value="Rating4">4.9 </option>
+                            <option value="Rating5">5</option>
+                        </select>
+                        <br />
                         <input
                             className="mb-2 w-75"
                             {...register("description")}

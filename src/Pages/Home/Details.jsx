@@ -1,40 +1,26 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Card } from "react-bootstrap";
+import { useLoaderData } from "react-router-dom";
+
 
 const Details = () => {
+  const allData = useLoaderData()
+  // eslint-disable-next-line no-unused-vars
+  const { id, image, price, rating, name } = allData;
 
-    const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
-    const handleClose = () => setShow(false);
-    
-
-    return (
-
-        <>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-
-    );
+  return (
+    <div>
+  <Card>
+      <Card.Img variant="top" src={image} />
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>
+          <p> {price}</p>
+        <p> {rating}</p>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    </div>
+  );
 };
 
 export default Details;

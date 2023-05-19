@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Container, Row, Table } from 'react-bootstrap';
+import {  Col, Container, Row, Table } from 'react-bootstrap';
 import TableBody from './TableBody';
 
 
@@ -9,11 +9,7 @@ import TableBody from './TableBody';
 const AllToys = () => {
 
   const [allToys, setAllToys] = useState([]);
-  const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
   
-
   useEffect(() => {
     fetch('http://localhost:5000/toys')
       .then(res => res.json())
@@ -24,10 +20,8 @@ const AllToys = () => {
 
   }, [])
 
-
   return (
-
-    <>
+   
       <Container className='my-4'>
         <Row>
           <Col>
@@ -40,15 +34,12 @@ const AllToys = () => {
                 </tr>
               </thead>
               {
-                allToys.map((singleToy, index) => <TableBody handleShow={handleShow} handleClose={handleClose} show={show} index={index} singleToy={singleToy} key={singleToy._id} />)
+                allToys.map((singleToy, index) => <TableBody index={index} singleToy={singleToy} key={singleToy._id} />)
               }
             </Table>
           </Col>
         </Row>
       </Container>
-
-     
-    </>
   );
 };
 

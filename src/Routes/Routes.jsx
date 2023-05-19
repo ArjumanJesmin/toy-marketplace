@@ -1,6 +1,6 @@
 import {
-    createBrowserRouter,
-  } from "react-router-dom";
+  createBrowserRouter,
+} from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -13,51 +13,52 @@ import NotFound from "../Pages/NotFound/NotFound";
 import Details from "../Pages/Home/Details";
 
 
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Main/>,
-      children:[
-        {
-          path:'/',
-          element:<Home/>
-        },
-        {
-          path:'/allToys',
-          element:<AllToys/>
-        },
-        {
-          path:'/myToys',
-          element:<MyToys/>
-        },
-        {
-          path:'/addAToys',
-          element:<AddAToys/>
-        },
-        {
-          path:'/blog',
-          element:<Blog/>
-        },
-        {
-          path:'/login',
-          element:<Login />
-        },
-        {
-          path:'/register',
-          element:<Register/>
-        },
-        {
-          path:'/details',
-          element:<Details/>
-        },
-       
-      ]
-    },
-    {
-      path:'/*',
-      element:<NotFound/>
-    }
-    
-  ]);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Main />,
+    children: [
+      {
+        path: '/',
+        element: <Home />
+      },
+      {
+        path: '/allToys',
+        element: <AllToys />
+      },
+      {
+        path: '/myToys',
+        element: <MyToys />
+      },
+      {
+        path: '/addAToys',
+        element: <AddAToys />
+      },
+      {
+        path: '/blog',
+        element: <Blog />
+      },
+      {
+        path: '/login',
+        element: <Login />
+      },
+      {
+        path: '/register',
+        element: <Register />
+      },
+      
+    ]
+  },
+  {
+    path: '/details',
+    element: <Details />,
+    loader: ({ params }) => fetch(`http://localhost:5000/toysOne/${params.id}`)
+  },
+  {
+    path: '/*',
+    element: <NotFound />
+  }
 
-  export default router;
+]);
+
+export default router;
