@@ -1,9 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const NavigationBar = () => {
+
+    const { user } = useContext(AuthContext);
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -17,8 +20,11 @@ const NavigationBar = () => {
                         <Link className='text-decoration-none text-white' to='/addAToys'>Add A Toys</Link>
                         <Link className='text-decoration-none text-white' to='/blog'>Blog</Link>
                     </Nav>
-                    <Nav>
-                        <Link className='text-decoration-none text-white' to='/login'>Login</Link>
+                    <Nav> {user?.email ?
+                     <Link className='text-decoration-none text-white'>LogOut</Link>
+                      :
+                     <Link className='text-decoration-none text-white' to='/login'>Login</Link>
+                    }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
