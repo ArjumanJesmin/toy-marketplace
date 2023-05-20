@@ -14,6 +14,7 @@ import Details from "../Pages/Home/DollDetailsData/Details";
 import DetailsTwo from "../Pages/Home/DollDetailsData/DetailsTwo";
 import BtnDetails from "../Pages/Home/DollDetailsData/BtnDetails";
 import PrivateRoute from "./PrivateRoute";
+import CardToy from "../Pages/Home/SubCategory/CardToy";
 
 
 
@@ -52,19 +53,23 @@ const router = createBrowserRouter([
         element: <Register />
       },
       {
+        path: '/cardToy',
+        element: <PrivateRoute><CardToy/></PrivateRoute>
+      },
+      {
         path: '/details/:id',
-        element: <Details />,
-        loader: ({ params }) => fetch(`http://localhost:5000/toysOne/${params.id}`)
+        element: <PrivateRoute><Details /></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://baby-doll-server-side.vercel.app/toysOne/${params.id}`)
       },
       {
         path: '/detailsTwo/:id',
-        element: <DetailsTwo />,
-        loader: ({ params }) => fetch(`http://localhost:5000/toysTwo/${params.id}`)
+        element: <PrivateRoute><DetailsTwo /></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://baby-doll-server-side.vercel.app/toysTwo/${params.id}`)
       },
       {
         path:'/btnDetails/:id',
-        element:<BtnDetails/>,
-        loader:({params}) =>fetch(`http://localhost:5000/toysThree/${params.id}`)
+        element:<PrivateRoute><BtnDetails/></PrivateRoute>,
+        loader:({params}) =>fetch(`https://baby-doll-server-side.vercel.app/toysThree/${params.id}`)
       }
 
     ]

@@ -2,15 +2,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-// import CardToy from './CardToy';
 import { Link } from 'react-router-dom';
 
-const CategoryOne = () => {
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const CategoryOne = () => {
+    const notify = () => toast("Wow so easy!");
     const [toys, setToys] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/toysOne')
+        fetch('https://baby-doll-server-side.vercel.app/toysOne')
             .then(res => res.json())
             .then(data => {
                 setToys(data)
@@ -32,7 +34,9 @@ const CategoryOne = () => {
                                         <p>price: $ {toy?.price}</p>
                                         <p>Rating: {toy?.rating}</p>
                                     </Card.Text>
-                                    <Link to={`/details/${toy._id}`}><Button key={toy._id} className="me-2 mb-2" variant="primary">View Details</Button></Link>
+                                    <Link to={`/details/${toy._id}`}><Button onClick={notify}  key={toy._id} className="me-2 mb-2" variant="primary">View Details</Button>
+                                    <ToastContainer />
+                                    </Link>
                                 </Card.Body>
                             </Card>
                         </>)

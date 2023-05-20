@@ -64,7 +64,7 @@ const Login = () => {
         <Container >
 
             <Row>
-                <Col lg={4} md={4} sm={2} className=' mx-auto  p-5  my-5  border rounded bg-light shadow'>
+                <Col lg={4} md={4} sm={2} className=' mx-auto  p-5  my-5  border border-warning rounded bg-light shadow'>
                     <h2 className='text-center text-success py-2'>Login </h2>
                     <Form onSubmit={handleLogin}>
                         <Form.Group className="mb-3 w-50%" controlId="formBasicEmail">
@@ -84,7 +84,7 @@ const Login = () => {
 
                         <Button onClick={handleGoogleSignIn} variant="outline-success" className='m-2 '><FaGooglePlus /></Button>
 
-                        <p><small> You have no account? please <Link className='text-success text-decoration-none' to='/register'>Register</Link></small></p>
+                        <p><small> You have no account? please <Link className='text-decoration-none text-success' to='/register'>Register</Link></small></p>
                     </Form>
                 </Col>
             </Row>

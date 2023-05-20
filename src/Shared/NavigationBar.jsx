@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const NavigationBar = () => {
@@ -15,6 +15,17 @@ const NavigationBar = () => {
             })
             .catch(error => console.log(error.message))
     }
+
+    const navLinkStyle = ({ isActive }) => {
+        return {
+            fontWeight: isActive ? 'bold' : 'normal',
+            textDecoration: isActive ? 'underline' : 'none',
+            color: isActive ? 'yellow' : 'white'
+        }
+    }
+
+
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -22,20 +33,20 @@ const NavigationBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto  gap-4 ">
-                        <Link className='text-decoration-none text-white' to='/'>Home</Link>
-                        <Link className='text-decoration-none text-white' to='/allToys'>All Toys</Link>
-                        <Link className='text-decoration-none text-white' to='/myToys'>My Toys</Link>
-                        <Link className='text-decoration-none text-white' to='/addAToys'>Add A Toys</Link>
-                        <Link className='text-decoration-none text-white' to='/blog'>Blog</Link>
+                        <NavLink style={navLinkStyle}  to='/'>Home</NavLink>
+                        <NavLink style={navLinkStyle}  to='/allToys'>All Toys</NavLink>
+                        {/* <NavLink style={navLinkStyle}  to='/myToys'>My Toys</NavLink> */}
+                        <NavLink style={navLinkStyle}  to='/addAToys'>Add A Toys</NavLink>
+                        <NavLink style={navLinkStyle}  to='/blog'>Blog</NavLink>
                     </Nav>
 
                     <Nav> {user?.email ?
-                        <div>
+                        <>
                             <Link className='text-decoration-none text-white px-2' onClick={handleLogOut}> LogOut</Link>
-                            <Link className='text-decoration-none text-white' to='/myToys' > MyToys</Link>
-                        </div>
+                            <NavLink style={navLinkStyle} to='/myToys' > MyToys</NavLink>
+                        </>
                         :
-                        <Link className='text-decoration-none text-white' to='/login'>Login</Link>
+                        <Link className='text-decoration-none text-white px-2' to='/login'>Login</Link>
                     }
                     </Nav>
                 </Navbar.Collapse>

@@ -23,7 +23,7 @@ const AddAToys = () => {
         data.skills = selectedOption;
         console.log(data)
 
-        fetch("http://localhost:5000/postToy", {
+        fetch("https://baby-doll-server-side.vercel.app/postToy", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -109,8 +109,8 @@ const AddAToys = () => {
                         <br />
                         <input
                             className="mb-2 w-75"
-                            {...register("description")}
-                            placeholder="description"
+                            {...register("toyName")}
+                            placeholder="Description"
                         />
                         <br />
                         <input className="px-5 " value="Post Toy" type="submit" />

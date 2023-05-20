@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import CloseButton from 'react-bootstrap/CloseButton';
 
 const MyToysRow = ({ singleData, index, handleDelete, handleUpdateConfirm }) => {

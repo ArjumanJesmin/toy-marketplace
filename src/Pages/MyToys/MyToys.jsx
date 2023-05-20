@@ -7,7 +7,7 @@ import MyToysRow from './MyToysRow';
 const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [someData, setSomeData] = useState([])
-    const url = `http://localhost:5000/someToys?email=${user?.email}`;
+    const url = `https://baby-doll-server-side.vercel.app/someToys?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -18,7 +18,7 @@ const MyToys = () => {
     const handleDelete = id => {
         const proceed = confirm('Are You sure you want to delete')
         if (proceed) {
-            fetch(`http://localhost:5000/someToys/${id}`, {
+            fetch(`https://baby-doll-server-side.vercel.app/someToys/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -37,7 +37,7 @@ const MyToys = () => {
     const handleUpdateConfirm = id => {
         const proceed = confirm('Are You sure You want to updated data')
        if(proceed){
-        fetch(`http://localhost:5000/someToys/${id}`, {
+        fetch(`https://baby-doll-server-side.vercel.app/someToys/${id}`, {
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json'

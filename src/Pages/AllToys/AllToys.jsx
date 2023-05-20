@@ -11,7 +11,7 @@ const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   useTitle('AllToys')
   useEffect(() => {
-    fetch('http://localhost:5000/toys')
+    fetch('https://baby-doll-server-side.vercel.app/toys')
       .then(res => res.json())
       .then(data => {
         setAllToys(data)
@@ -29,8 +29,8 @@ const AllToys = () => {
               <thead>
                 <tr>
                   <th>Seller</th>
+                  <th>Name</th>
                   <th>Toy Name</th>
-                  <th>Description</th>
                   <th>available_quantity</th>
                   <th>rating</th>
                   <th>email</th>

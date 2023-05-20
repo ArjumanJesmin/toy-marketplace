@@ -21,7 +21,7 @@ const TableBody = ({ singleToy, index }) => {
                     <td> {radioGroup}</td>
                     <td> {email}</td>
                     <td><img style={{width:'6rem'}} src={image} alt="" /></td>
-                    <td><Link to='/details'><Button variant="primary" >View Details</Button></Link></td>
+                    <td><Link to='/cardToy'><Button variant="primary" >View Details</Button></Link></td>
                 </tr>
             </tbody>
         </>
