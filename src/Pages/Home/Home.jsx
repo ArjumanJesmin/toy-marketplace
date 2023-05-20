@@ -5,6 +5,7 @@ import Gallery from './Gallery';
 import CategoryTab from './CategoryTab';
 import useTitle from '../../hooks/useTitle';
 import Services from './Services/Services';
+import Products from './Products';
 
 const Home = () => {
     useTitle('home')
@@ -14,6 +15,7 @@ const Home = () => {
             <Gallery/>
             <CategoryTab/>
             <Services/>
+            <Products/>
         </div>
     );
 };

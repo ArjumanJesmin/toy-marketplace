@@ -53,10 +53,11 @@ const AddAToys = () => {
 
 
     return (
-        <Container>
+       <div className='bg-secondary'>
+         <Container>
             <Row>
                 <Col>
-                    <form className='p-5 m-4 ' onSubmit={handleSubmit(onSubmit)}>
+                    <form className='p-5 m-4 shadow-lg text-center ' onSubmit={handleSubmit(onSubmit)}>
                         <input
                             className=" mb-2 w-75"
                             {...register("title")}
@@ -81,7 +82,7 @@ const AddAToys = () => {
 
 
                         <CreatableSelect
-                            className="mb-2 w-75"
+                            className="mx-auto w-75 my-2 "
                             defaultValue={selectedOption}
                             onChange={setSelectedOption}
                             options={options}
@@ -99,7 +100,7 @@ const AddAToys = () => {
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                        <select className="mb-2 w-25" {...register('radioGroup')}>
+                        <select className="mb-2 w-50" {...register('radioGroup')}>
                             <option value="Rating1">4.6 </option>
                             <option value="Rating2">4.7 </option>
                             <option value="Rating3">4.8 </option>
@@ -118,6 +119,7 @@ const AddAToys = () => {
                 </Col>
             </Row>
         </Container>
+       </div>
     );
 };
 
