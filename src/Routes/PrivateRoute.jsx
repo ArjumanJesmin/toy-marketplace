@@ -14,7 +14,7 @@ const PrivateRoute = ({children}) => {
         return <Spinner animation="grow" />
     }
 
-    if(user){
+    if(user?.email){
         return children;    
     }
     return <Navigate state={{from:location}} to="/login" replace></Navigate>

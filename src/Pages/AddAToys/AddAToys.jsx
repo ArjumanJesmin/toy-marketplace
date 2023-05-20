@@ -76,7 +76,7 @@ const AddAToys = () => {
                             {...register("image")}
                             placeholder="Image URL"
                             type="url"
-                            defaultValue="https://images.pexels.com/photos/2528118/pexels-photo-2528118.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            defaultValue="https://img.freepik.com/free-vector/magic-fairy_1450-101.jpg?w=740&t=st=1684560645~exp=1684561245~hmac=69bf14d366fd094d608bbb9b15d92e512a9462d66df464b28593c6bd8c5a85af"
                         />
 
 

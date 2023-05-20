@@ -13,6 +13,7 @@ import NotFound from "../Pages/NotFound/NotFound";
 import Details from "../Pages/Home/DollDetailsData/Details";
 import DetailsTwo from "../Pages/Home/DollDetailsData/DetailsTwo";
 import BtnDetails from "../Pages/Home/DollDetailsData/BtnDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/myToys',
-        element: <MyToys />
+        element: <PrivateRoute><MyToys /></PrivateRoute>
       },
       {
         path: '/addAToys',
