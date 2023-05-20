@@ -1,48 +1,99 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import useTitle from '../../hooks/useTitle';
+import { Link, Navigate, useLocation } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+
+
 
 const Register = () => {
-    useTitle('register')
+    const [error,setError] =useState('')
+    const [success,setSuccess] =useState('')
+    const { createUser } = useContext(AuthContext);
+
+    const location = useLocation()
+    console.log(location)
+    const from = location.state?.from?.pathname || '/'
+   
+    const handleRegister = (event) => {
+        event.preventDefault();
+        setError('')
+        setSuccess('')
+       
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password= form.password.value;
+
+        if (!/(?=.*[A-Z])/.test(password)) {
+            setError('please add at least one uppercase')
+            return
+        } else if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
+            setError('please add at least one special characters')
+            return;
+        } else if (password.length < 6){
+            setError('please Minimum six in length!');
+            return;
+        }
+
+        createUser(email,password)
+        .then(result=>{
+            const createdUser = result.user
+            console.log(createdUser)
+            setSuccess('Register Successfully')
+            Navigate(from, {replace:true})
+            event.target.reset();
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
+
     return (
-        <Container>
-            <Row>
-                <Col className='mx-auto my-4 border p-5 rounded shadow' md={6}>
-                    <h2>Register </h2>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="formGroupName">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" name='name' placeholder="Enter name" required />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formGroupEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" name='email' placeholder="Enter email" required />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formGroupPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" name='password' placeholder="Password" required/>
-                        </Form.Group>
+       <Container>
+         <Row>
+         <Col lg={6} md={4} sm={2} className=' mx-auto border p-5 rounded my-5 bg-light' >
+            <h2 className='text-center py-2 text-success'>Register </h2>
+            <Form onSubmit={handleRegister}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Your Name</Form.Label>
+                    <Form.Control type="text" placeholder="Your Name" name='name' required />
+                </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formGroupImage">
-                            <Form.Label>Image URL</Form.Label>
-                            <Form.Control type="photo" name='image' placeholder="Image URL" />
-                        </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Photo URL</Form.Label>
+                    <Form.Control type="photo" placeholder="Your Photo" name='photo' required />
+                </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formGroupSubmit">
-                            <Form.Label>Submit</Form.Label>
-                            <Form.Control type="Submit"  />
-                        </Form.Group>
-                        <Button><FaGoogle/></Button>
-                    </Form>
-                    <p> <small> <Link className='text-decoration-none text-danger' to='/login'>Login</Link></small></p>
-                </Col>
-            </Row>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" name='email' required />
+                </Form.Group>
 
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" name='password' />
+                </Form.Group>
 
-        </Container>
+                <Form.Text className="text-muted">
+                   
+                </Form.Text>
+                <Button variant="success" type="submit">
+                    Register
+                </Button>
+                <br/>
+                
+                <p><small> You have all ready register? please <Link className='text-success text-decoration-none' to='/login'>Login</Link></small></p>
+            </Form>
+            <p className='text-danger'>{error}</p>
+            <p className='text-success'>{success}</p>
+            <div>
+                
+            </div>
+        </Col>
+         </Row>
+       </Container>
     );
 };
 

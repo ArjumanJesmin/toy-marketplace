@@ -8,16 +8,19 @@ import { Link } from 'react-router-dom';
 const TableBody = ({ singleToy, index }) => {
 
 
-    const {seller_name, picture, available_quantity, categories, description, seller_email, price,rating} = singleToy;
+    const {title, image, available_quantity,  description, email, radioGroup} = singleToy;
 
     return (
         <>
             <tbody>
                 <tr>
                     <td>{index + 1}</td>
-                    <td>{seller_name}</td>
+                    <td>{title}</td>
+                    <td>{description}</td>
                     <td>{available_quantity}</td>
-                    <td> price: $ {price}</td>
+                    <td> {radioGroup}</td>
+                    <td> {email}</td>
+                    <td><img style={{width:'6rem'}} src={image} alt="" /></td>
                     <td><Link to='/details'><Button variant="primary" >View Details</Button></Link></td>
                 </tr>
             </tbody>

@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Button, Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
-import CardToy from './CardToy';
+// import CardToy from './CardToy';
 import { Link } from 'react-router-dom';
 
 const CategoryOne = () => {
@@ -19,12 +19,12 @@ const CategoryOne = () => {
 
     return (
         <Container>
-            <Row className=' justify-content-center'>
-                <Col className='d-flex' sm={12}   >
+            <Row >
+                <Col className='d-flex' >
                      {
                         toys.map((toy) => <>
                             <div>
-                                <Card >
+                                <Card key={toy._id} >
                                     <Card.Img  style={{ height: '20rem' }} variant="top" src={toy?.image} fluid />
                                     <Card.Body>
                                         <Card.Title>{toy?.name}</Card.Title>

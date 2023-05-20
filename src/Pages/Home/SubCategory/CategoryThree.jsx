@@ -17,7 +17,7 @@ const CategoryThree = () => {
     return (
         <Container>
         <Row className=' justify-content-center'>
-            <Col className='d-flex' sm={12}   >
+            <Col className='d-flex'>
                  {
                     toys.map((toy) => <>
                         <div>

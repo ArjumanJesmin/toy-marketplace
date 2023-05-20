@@ -18,7 +18,7 @@ const CategoryTwo = () => {
     return (
         <Container>
             <Row className=' justify-content-center'>
-                <Col className='d-flex' sm={12}   >
+                <Col className='d-flex'  >
                      {
                         toys.map((toy) => <>
                             <div>
@@ -30,7 +30,7 @@ const CategoryTwo = () => {
                                             <p>price: $ {toy?.price}</p>
                                             <p>Rating: {toy?.rating}</p>
                                         </Card.Text>
-                                        <Link to={`/details/${toy._id}`}><Button key={toy._id} className="me-2 mb-2" variant="primary">View Details</Button></Link>
+                                        <Link to={`/detailsTwo/${toy._id}`}><Button key={toy._id} className="me-2 mb-2" variant="primary">View Details</Button></Link>
                                     </Card.Body>
                                 </Card>
                             </div>

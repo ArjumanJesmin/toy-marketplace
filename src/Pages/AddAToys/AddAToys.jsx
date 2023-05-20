@@ -31,6 +31,13 @@ const AddAToys = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
+                if (result.insertedId){
+                    Swal.fire(
+                        'Good job!',
+                        'You have data insert successfully!',
+                        'success'
+                      )
+                }
             });
         console.log(data);
     };
@@ -58,7 +65,7 @@ const AddAToys = () => {
                         />
                         <input
                             className="mb-2 w-75"
-                            //   value={user?.email}
+                              value={user?.email}
                             {...register("email", { required: true })}
                             placeholder="your email"
                             type="email"
