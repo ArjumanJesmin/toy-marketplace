@@ -24,7 +24,7 @@ const MyToys = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    if(data.deletedCount >0 ){
+                    if (data.deletedCount > 0) {
                         alert('deleted successfully');
                         const remaining = someData.filter(singleData => singleData._id !== id)
                         setSomeData(remaining)
@@ -33,6 +33,31 @@ const MyToys = () => {
         }
     }
 
+    // handle update
+    const handleUpdateConfirm = id => {
+        const proceed = confirm('Are You sure You want to updated data')
+       if(proceed){
+        fetch(`http://localhost:5000/someToys/${id}`, {
+            method: 'PATCH',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify({status:'conform'})
+        })
+            .then(res => res.json())
+            .then(data =>{
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    alert('updated successfully')
+                    const remaining = someData.filter(singleData =>singleData._id !== id);
+                    const updated =someData.find(singleData =>singleData._id ===id)
+                    updated.status ='confirm'
+                    const newData = [updated, ...remaining]
+                    setSomeData(newData)
+                }
+            } )
+       }
+    }
 
     return (
         <Container className='my-4'>
@@ -51,7 +76,7 @@ const MyToys = () => {
                             </tr>
                         </thead>
                         {
-                            someData.map((singleData, index) => <MyToysRow index={index} handleDelete={handleDelete } singleData={singleData} key={singleData._id} />)
+                            someData.map((singleData, index) => <MyToysRow index={index} handleUpdateConfirm={handleUpdateConfirm} handleDelete={handleDelete} singleData={singleData} key={singleData._id} />)
                         }
                     </Table>
                 </Col>

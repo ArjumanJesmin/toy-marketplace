@@ -5,22 +5,9 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CloseButton from 'react-bootstrap/CloseButton';
 
-const MyToysRow = ({ singleData, index,handleDelete }) => {
+const MyToysRow = ({ singleData, index, handleDelete, handleUpdateConfirm }) => {
 
-    const { _id, title, image, available_quantity, description, email, radioGroup } = singleData;
-
-    // const handleDelete = id => {
-    //     const proceed = confirm('Are You sure you want to delete')
-    //     if (proceed) {
-    //         fetch(`http://localhost:5000/someToys/${id}`,{
-    //             method: 'DELETE'
-    //         })
-    //         .then(res=>res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    //     }
-    // }
+    const { _id, title, image, available_quantity, description, email, radioGroup, status } = singleData;
 
     return (
         <tbody>
@@ -32,7 +19,11 @@ const MyToysRow = ({ singleData, index,handleDelete }) => {
                 <td> {radioGroup}</td>
                 <td> {email}</td>
                 <td><img style={{ width: '6rem' }} src={image} alt="" /></td>
-                <td> <Link to='/'><Button variant="success" >Update</Button></Link> </td>
+                <td>
+                    { status === "confirm" ? <span className='text-danger'>Confirm</span> :
+                        <Button onClick={() => handleUpdateConfirm(_id)} variant="success" >Confirm</Button>
+                    }
+                </td>
                 <td>
                     <Button onClick={() => handleDelete(_id)}
                         variant="outline-danger"><CloseButton /></Button>
