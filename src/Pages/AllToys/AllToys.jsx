@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Container, Form, InputGroup, Row, Table } from 'react-bootstrap';
+import { Button, Col, Container, Form, InputGroup, Modal, Row, Table } from 'react-bootstrap';
 import TableBody from './TableBody';
 import useTitle from '../../hooks/useTitle';
 
@@ -35,8 +35,17 @@ const AllToys = () => {
     })
   }
 
-  return (
+  // Modal
+  const [fullscreen, setFullscreen] = useState(true);
+  const [show, setShow] = useState(false);
 
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
+
+  return (
+<>
     <Container className='my-4'>
       <div>
         <InputGroup onChange={(e) => setSearch(e.target.value)} type='text' className="mb-3 w-50 mx-auto">
@@ -66,12 +75,15 @@ const AllToys = () => {
               </tr>
             </thead>
             {
-              allToys.map((singleToy, index) => <TableBody index={index} singleToy={singleToy} key={singleToy._id} />)
+              allToys.map((singleToy, index) => <TableBody index={index} singleToy={singleToy} key={singleToy._id} handleShow={handleShow} fullscreen={fullscreen} show={show}  />)
             }
           </Table>
         </Col>
       </Row>
     </Container>
+
+       
+    </>
   );
 };
 
