@@ -35,14 +35,14 @@ const AllToys = () => {
     })
   }
 
-  // Modal
-  const [fullscreen, setFullscreen] = useState(true);
-  const [show, setShow] = useState(false);
+  // // Modal
+  // const [fullscreen, setFullscreen] = useState(true);
+  // const [show, setShow] = useState(false);
 
-  function handleShow(breakpoint) {
-    setFullscreen(breakpoint);
-    setShow(true);
-  }
+  // function handleShow(breakpoint) {
+  //   setFullscreen(breakpoint);
+  //   setShow(true);
+  // }
 
   return (
 <>
@@ -75,7 +75,7 @@ const AllToys = () => {
               </tr>
             </thead>
             {
-              allToys.map((singleToy, index) => <TableBody index={index} singleToy={singleToy} key={singleToy._id} handleShow={handleShow} fullscreen={fullscreen} show={show}  />)
+              allToys.map((singleToy, index) => <TableBody index={index} singleToy={singleToy} key={singleToy._id}   />)
             }
           </Table>
         </Col>
