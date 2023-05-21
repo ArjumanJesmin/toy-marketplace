@@ -1,5 +1,5 @@
 {
-  "name": "baby-dall-client-side",
+  "name": "baby-doll-client-side",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "firebase": "^9.22.0",
     "localforage": "^1.10.0",
