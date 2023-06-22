@@ -36,7 +36,7 @@ const NavigationBar = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand to="/">Beauty of Baby Dolls</Navbar.Brand>
+                <Navbar.Brand to="/">Beauty of Dolls</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto  gap-4 ">

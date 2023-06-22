@@ -37,15 +37,15 @@ const Footer = () => {
               We would love to hear from you! If you have any questions, suggestions, or feedback regarding our baby dolls or services,
             </p>
             <ul className='text-secondary'>
-              <li>
+              <p>
                 <strong>Email:</strong> info@babydollhaven.com
-              </li>
-              <li>
+              </p>
+              <p>
                 <strong>Phone:</strong> 1-800-123-4567
-              </li>
-              <li>
+              </p>
+              <>
                 <strong>Address:</strong> 1234 Baby Doll Street, Toyland, USA
-              </li>
+              </>
             </ul>
           </Col>
         </Row>

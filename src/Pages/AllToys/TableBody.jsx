@@ -21,7 +21,7 @@ const TableBody = ({ singleToy, index }) => {
                     <td> {email}</td>
                     <td><img style={{ width: '6rem' }} src={image} alt="" /></td>
                     <td>
-                        <Button variant="primary" onClick={() => setShowModal(true)} >View Details
+                        <Button variant="secondary" onClick={() => setShowModal(true)} >View Details
 
                         </Button>
                     </td>

@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, FormLabel, Image, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import CreatableSelect from 'react-select';
 import { AuthContext } from '../../providers/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import toy from '../../assets/toy.jpg'
 
 
 const AddAToys = () => {
@@ -31,12 +32,12 @@ const AddAToys = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
-                if (result.insertedId){
+                if (result.insertedId) {
                     Swal.fire(
                         'Good job!',
                         'You have data insert successfully!',
                         'success'
-                      )
+                    )
                 }
             });
         console.log(data);
@@ -53,73 +54,92 @@ const AddAToys = () => {
 
 
     return (
-       <div className='bg-secondary'>
-         <Container>
-            <Row>
-                <Col>
-                    <form className='p-5 m-4 shadow-lg text-center ' onSubmit={handleSubmit(onSubmit)}>
-                        <input
-                            className=" mb-2 w-75"
-                            {...register("title")}
-                            placeholder="title"
-                            defaultValue="Name"
-                        />
-                        <input
-                            className="mb-2 w-75"
-                              value={user?.email}
-                            {...register("email", { required: true })}
-                            placeholder="your email"
-                            type="email"
-                        />
+        <div className='rounded  m-5'>
+            <Container>
+                <Row>
+                        <Col>
 
-                        <input
-                            className="mb-2 w-75"
-                            {...register("image")}
-                            placeholder="Image URL"
-                            type="url"
-                            defaultValue="https://img.freepik.com/free-vector/magic-fairy_1450-101.jpg?w=740&t=st=1684560645~exp=1684561245~hmac=69bf14d366fd094d608bbb9b15d92e512a9462d66df464b28593c6bd8c5a85af"
-                        />
+                            <h2 className='text-center text-secondary'>Add A Toy</h2>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <div>
+                                    <FormLabel htmlFor="name">Name*</FormLabel>
+                                    <br />
+                                    <input
+                                        className=" mb-4 w-100 rounded py-2 "
+                                        {...register("title")}
+                                        placeholder="title"
+                                        defaultValue="Name: "
+                                    />
+                                </div>
+
+                                <div>
+                                    <FormLabel htmlFor="email">Email*</FormLabel>
+                                    <br />
+                                    <input
+                                        className="mb-4 w-100 rounded py-2"
+                                        value={user?.email}
+                                        {...register("email", { required: true })}
+                                        placeholder="your email"
+                                        type="email"
+                                    />
+                                </div>
+
+                                <div>
+                                    <FormLabel htmlFor="Image URL">Image URL*</FormLabel>
+                                    <br />
+                                    <input
+                                        className="mb-4 w-100 rounded py-2"
+                                        {...register("image")}
+                                        placeholder="Image URL"
+                                        type="url"
+                                        defaultValue=""
+                                    />
+                                </div>
 
 
-                        <CreatableSelect
-                            className="mx-auto w-75 my-2 "
-                            defaultValue={selectedOption}
-                            onChange={setSelectedOption}
-                            options={options}
-                            isMulti
-                        />
-                        <select className="mb-2 w-25" {...register("available_quantity")}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <select className="mb-2 w-50" {...register('radioGroup')}>
-                            <option value="Rating1">4.6 </option>
-                            <option value="Rating2">4.7 </option>
-                            <option value="Rating3">4.8 </option>
-                            <option value="Rating4">4.9 </option>
-                            <option value="Rating5">5</option>
-                        </select>
-                        <br />
-                        <input
-                            className="mb-2 w-75"
-                            {...register("toyName")}
-                            placeholder="Description"
-                        />
-                        <br />
-                        <input className="px-5 " value="Post Toy" type="submit" />
-                    </form>
-                </Col>
-            </Row>
-        </Container>
-       </div>
+                                <CreatableSelect
+                                    className=" mb-4 w-100 rounded py-2 "
+                                    defaultValue={selectedOption}
+                                    onChange={setSelectedOption}
+                                    options={options}
+                                    isMulti
+                                />
+                                <select className="mb-4  rounded py-2 w-50" {...register("available_quantity")}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <select className="mb-4  rounded py-2 w-50" {...register('radioGroup')}>
+                                    <option value="Rating1">4.6 </option>
+                                    <option value="Rating2">4.7 </option>
+                                    <option value="Rating3">4.8 </option>
+                                    <option value="Rating4">4.9 </option>
+                                    <option value="Rating5">5</option>
+                                </select>
+                                <br />
+                                <input
+                                    className="mb-4 w-100 rounded py-2"
+                                    {...register("toyName")}
+                                    placeholder="Description"
+                                />
+                                <br />
+                                <input className="px-5 rounded btn btn-outline-secondary  " value="Post Toy" type="submit" />
+                            </form>
+                        </Col>
+
+                        <Col>
+                            <Image className='h-75 w-100' src={toy} thumbnail />
+                        </Col>
+                </Row>
+            </Container>
+        </div>
     );
 };
 

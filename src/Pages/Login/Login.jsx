@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { AuthContext } from '../../providers/AuthProvider';
 import app from '../../Firebase/firebase.config';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
@@ -17,8 +18,7 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
 
     const location = useLocation()
-    console.log(location)
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleLogin = (event) => {
@@ -39,7 +39,16 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                navigate(from, { replace: true })
+                Swal.fire({
+                    title: 'User LogIn Successfully',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+                navigate(from, { replace: true });
 
             })
             .catch(error => {
