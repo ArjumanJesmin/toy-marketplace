@@ -11,13 +11,13 @@ const Services = () => {
      },[]);
 
     return (
-        <div style={{color:'#d63384'}} className='p-4 bg-light '  data-aos="flip-right">
+        <div  className='p-4 bg-light '  data-aos="flip-right">
             <Container className='border border-danger mx-auto rounded m-4 text-center shadow-lg'>
-                <h1 style={{ fontStyle: 'italic', fontFamily: 'Arial, sans-serif' }} className='text-center py-3 fw-bold'>Tons of Customer Features</h1>
-                <p className='text-secondary'>Our baby toys cater to parents, caregivers, and family members seeking engaging, educational, and safe playtime experiences for infants and young children.</p>
+                <h1 style={{  fontFamily: 'Arial, sans-serif' }} className='text-center text-secondary py-3 fw-bold'>Tons of Customer Features</h1>
+                <p>Our baby toys cater to parents, caregivers, and family members seeking engaging, educational, and safe playtime experiences for infants and young children.</p>
                 {/* row-1 */}
-                <Row className='my-4'>
-                    <Col lg={6} md={12}>
+                <Row  className='my-4'>
+                    <Col style={{color:'#d63384'}} lg={6} md={12}>
                         <div>
                             <div >
                                 <FaCottonBureau size={48} />
@@ -26,7 +26,7 @@ const Services = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col lg={6} md={12}>
+                    <Col lg={6} md={12} style={{color:'#d63384'}}>
                         <div>
                             <div >
                                 <FaHeart size={48} />
@@ -36,7 +36,7 @@ const Services = () => {
                     </Col>
                 </Row>
                 {/* row-2 */}
-                <Row className='my-4'>
+                <Row className='my-4' style={{color:'#d63384'}}>
                     <Col lg={6} md={12}>
                         <div>
                             <div >
@@ -46,7 +46,7 @@ const Services = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col lg={6} md={12}>
+                    <Col lg={6} md={12} style={{color:'#d63384'}}>
                         <div>
                             <div >
                                 <FaCodeBranch size={48} />
@@ -57,7 +57,7 @@ const Services = () => {
                 </Row>
                  {/* row-3 */}
                 <Row className='my-4'>
-                    <Col lg={6} md={12}>
+                    <Col lg={6} md={12} style={{color:'#d63384'}}>
                         <div>
                             <div >
                                 <FaMobileAlt size={48} />
@@ -66,7 +66,7 @@ const Services = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col lg={6} md={12}>
+                    <Col lg={6} md={12} style={{color:'#d63384'}}>
                         <div>
                             <div >
                                 <FaUserLock size={48} />
@@ -77,7 +77,7 @@ const Services = () => {
                 </Row>
 
                  {/* row-4 */}
-                <Row className='my-4  '>
+                <Row className='my-4' style={{color:'#d63384'}}>
                     <Col lg={6} md={12}>
                         <div>
                             <div >
@@ -87,7 +87,7 @@ const Services = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col lg={6} md={12}>
+                    <Col lg={6} md={12} style={{color:'#d63384'}}>
                         <div>
                             <div >
                                 <FaRegListAlt size={48} />

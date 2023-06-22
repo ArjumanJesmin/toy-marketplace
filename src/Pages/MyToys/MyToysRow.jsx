@@ -7,6 +7,7 @@ import CloseButton from 'react-bootstrap/CloseButton';
 const MyToysRow = ({ singleData, index, handleDelete, handleUpdateConfirm }) => {
 
     const { _id, title, image, available_quantity, description, email, radioGroup, status } = singleData;
+    console.log(singleData);
 
     return (
         <tbody>
@@ -19,13 +20,13 @@ const MyToysRow = ({ singleData, index, handleDelete, handleUpdateConfirm }) => 
                 <td> {email}</td>
                 <td><img style={{ width: '6rem' }} src={image} alt="" /></td>
                 <td>
-                    { status === "confirm" ? <span className='text-danger'>Confirm</span> :
+                    { status === "confirm" ? <span className='text-danger' size="sm">Confirm</span> :
                         <Button onClick={() => handleUpdateConfirm(_id)} variant="success" >Confirm</Button>
                     }
                 </td>
                 <td>
                     <Button onClick={() => handleDelete(_id)}
-                        variant="outline-danger"><CloseButton /></Button>
+                        variant="outline-danger" size="sm"><CloseButton /></Button>
                 </td>
             </tr>
         </tbody>

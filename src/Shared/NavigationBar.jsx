@@ -25,24 +25,15 @@ const NavigationBar = () => {
         }
     }
 
-    const handleMouseEnter = () => {
-        setHovering(true);
-      };
-
-      const handleMouseLeave = () => {
-        setHovering(false);
-      };
-
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar style={{backgroundColor:'#600643'}} collapseOnSelect expand="lg" >
             <Container>
-                <Navbar.Brand to="/">Beauty of Dolls</Navbar.Brand>
+                <Navbar.Brand className='text-white' to="/">Beauty of Dolls</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto  gap-4 ">
                         <NavLink style={navLinkStyle} to='/'>Home</NavLink>
                         <NavLink style={navLinkStyle} to='/allToys'>All Toys</NavLink>
-                        {/* <NavLink style={navLinkStyle}  to='/myToys'>My Toys</NavLink> */}
                         <NavLink style={navLinkStyle} to='/addAToys'>Add A Toys</NavLink>
                         <NavLink style={navLinkStyle} to='/blog'>Blog</NavLink>
                     </Nav>
@@ -51,11 +42,7 @@ const NavigationBar = () => {
                         <>
                             <Link className='text-decoration-none text-white px-2' onClick={handleLogOut}> LogOut</Link>
                             <NavLink style={navLinkStyle} to='/myToys' > MyToys</NavLink>
-
-                            <NavLink to='/' className={hovering ? "user-hover" : ""}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}> <FaUserCog style={{ fontSize: '2rem',color:'white', marginLeft:'10px' }} />  {user.displayName}</NavLink>
-
+                             <img style={{width:'30px'}} className=' rounded mx-4' src={user.photoURL} alt="User" title={user.displayName}/>
                         </>
                         :
                         <Link className='text-decoration-none text-white px-2' to='/login'>Login</Link>

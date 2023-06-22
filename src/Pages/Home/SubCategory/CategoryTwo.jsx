@@ -32,7 +32,7 @@ const CategoryTwo = () => {
                                             <p>price: $ {toy?.price}</p>
                                             <p>Rating: {toy?.rating}</p>
                                         </Card.Text>
-                                        <Link to={`/detailsTwo/${toy._id}`}><Button onClick={notify} key={toy._id} className="me-2 mb-2" variant="primary">View Details</Button>
+                                        <Link to={`/detailsTwo/${toy._id}`}><Button onClick={notify} key={toy._id} className="me-2 mb-2" variant="outline-secondary">View Details</Button>
                                         <ToastContainer />
                                         </Link>
                                     </Card.Body>

@@ -10,9 +10,9 @@ const Products = () => {
    
 
     return (
-        <div style={{color:'#6f42c1'}} className='p-4 bg-secondary'data-aos="fade-right" >
+        <div style={{color:'#6f42c1'}} className='p-4'data-aos="fade-right" >
         <Container className='border border-danger mx-auto rounded m-4 text-center shadow-lg bg-white'>
-            <h2 className='text-center py-3 fw-bold'>Customer love</h2>
+            <h2 className='text-center py-3 fw-bold text-secondary'>Customer love</h2>
             <p className='text-secondary shadow-lg'>Popular product</p>
             <Row className='my-4'>
                 <Col lg={4} md={6}>
